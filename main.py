@@ -1,8 +1,7 @@
 import time
 
 from selenium import webdriver
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -51,12 +50,40 @@ driver.find_element(By.XPATH, "//button[@type='submit']").click()
 
 # Переход к рефералу
 driver.get("http://iedem.tv/partner/manage/" + NUMBER)
+
 # wait.until(create_cond(By.ID, "checkRead")).click()
 # wait.until(create_cond(By.ID, "sbmtBtn")).click()
 
 # browser.find_element(By.TAG_NAME, 'body').send_keys(Keys.CONTROL + 't')
+driver.switch_to.new_window("tab")
+driver.get("https://10minemail.com/ru/")
+time.sleep(2)
+mail = wait.until(create_cond(By.CLASS_NAME, "emailbox-input opentip")).text
+print(mail)
 
-ActionChains(driver).send_keys(Keys.CONTROL + 't')
+
+"""alert = wait.until(EC.alert_is_present())
+
+# Store the alert text in a variable
+text = alert.text
+
+# Press the OK button
+alert.accept()"""
+
+"""mail = driver.find_element(By.XPATH, "//input[@id='mail']").get_attribute("value")
+"""
+
+"""mail = driver.
+driver.switch_to.window(driver.window_handles[0])
+wait.until(create_cond(By.NAME, "remark")).send_keys(Keys.CONTROL + "c")
+wait.until(create_cond(By.XPATH, "//button[@type='submit']")).click()
+
+"""
+
+"""driver.switch_to.new_window("tab")
+driver.get("https://ottplayer.tv/account/registration")
+wait.until(create_cond(By.NAME, "username")).send_keys()
+"""
 
 time.sleep(100)
 driver.close()
